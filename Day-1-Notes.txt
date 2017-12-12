@@ -1,0 +1,522 @@
+https://github.com/brainmentorspvtltd/
+
+
+
+
+Environment(Required Software)
+---------------------------------------
+---------------------------------------
+
+
+GitBash and GitHub		: code/document repository
+---------------------------------------
+VS Code(Visual Studio Code)	: IDE
+---------------------------------------
+Node.JS				: Engnine for Angular
+
+---------------------------------------
+$node -v
+
+
+Version:
+------------------
+AngularJS/1
+Angular:2/4/5
+
+
+ReactJS : View Architecture (Facebook)
+
+
+Amit-
+Retail & Corporate Trainer
+(NetPractice,Live)
+(sliently failed)
+NativeScript
+Progressive Web Apps (PWA) : FlipKart,Naukri etc.
+Single Page Applicaton (SPA)
+----------------------------------------------
+----------------------------------------------
+JS Basics
+Setup
+Greet App
+Calc App(Development Ways)
+
+Using MVC
+Exercise
+ES Latest Features
+Building CRUD Application
+Deploy CRUD App
+
+
+
+
+------------------------------------
+VBS ,
+JScript
+JS(ES/Achema script, ES8 is latest): build by NetScope ,now its under Mozillar
+		-  Mosaic was first browser 
+		- History:  Bredan Eich (Scheme, Self) : LiveScript 
+
+
+-Client Side Scripting
+-Loosely Typed				: no data type
+					: function can take n variable
+					: function can return any type of data 
+-Can also used server side in NodeJS
+-Functions are No-1 citizen in J.S
+
+	about:blank		in url 
+
+-Chrome works on V8 Engine 
+
+
+
+
+
+
+**Data Type
+:Defined
+
+-number
+-string
+-boolean
+-object : {} - can grow at runtime 
+-array is also object : a=[]
+
+:undefiend 
+
+
+
+
+Example:
+
+var a =1;   //varient or variable, it's number type
+typeof a;
+
+
+
+a instanceof Object;
+typeof Object;
+
+
+
+
+
+a ={id;100,name:'raman'};
+
+a.id;
+a.name;
+
+//to add something
+a.address='data';
+
+delete a.id;  //to delete member 
+
+
+////////////
+a=[22,33,444,555];
+
+a instanceof Array; //function
+typeof Array;
+
+a[0];
+
+
+
+
+//////////////////////
+var d = test;
+var e = test();
+
+/////
+d = null;  //become object
+
+typeof d;
+
+/////
+d = "";
+
+typeof d;  //string
+
+////
+var d;
+
+typeof d;// undefined 
+
+
+
+
+////
+var e = 10/0 ; ///infinite
+
+var ee = 0/"aa"; //NAN
+
+
+
+/////////////////
+a =1;
+b ="1";
+
+
+
+a==b ; //true - loosly compare
+
+a===b;  //false -  tightly compare
+
+
+FUNCTION
+--------------------------------------------------------
+--------------------------------------------------------
+function show(){
+
+console.log(".....");
+
+}
+
+
+
+
+var display = function(){  //became a nested....express style
+
+console.log("....");
+
+
+}
+
+//arrow function 
+var add = (a,b)=> a+b; ///ES 6
+
+
+var add = (a,b)=>{  //mandat
+
+console.log("...");
+return a+b;    //mandat
+}
+
+
+
+//string manipulation
+var add = (a,b)=>{  //mandat
+
+console.log(` hi ${a} and b is ${b}`);
+
+return a+b;    //mandat
+}
+
+
+
+
+
+
+--------------------------------------------------------
+--------------------------------------------------------
+
+QQQQ
+
+$("#id")
+$(document)
+
+
+1. should add 2 numbers
+2. should add 0 numbers
+3. should add 1 numbers
+4. should add 2 numbers
+5. should add number in string from "100"
+6. should add "ten" 0,10 = 0 +10 = 10
+7. should add function
+8. should add array
+9. should add above all
+
+
+
+
+function JQuery(){
+
+
+}
+
+
+
+var $=jQuery;
+$();
+
+
+
+////
+
+function add(){
+
+
+}
+
+
+console.dir(add);
+
+
+/////
+function add(){
+
+console.log("arguments ...are ",arguments.length);
+
+}
+
+
+
+add(1,222);
+add(1,2222,"abc");
+
+
+
+//////////////////// let : block level variable
+function add(){
+
+
+	a =100; //global variable
+	var b =100; //function level
+	if(...){
+
+		let c =100;  block level
+
+	}
+
+}
+
+
+////////////////////////////////////////////////
+'use strict'
+
+
+/////////////////////////////////
+
+function add(){
+
+
+	var sum=0;
+	for(let i=0; i<arguments.length; i++)
+	{
+
+
+
+		if(typeof argument[i] === "function)
+		{
+			argument[i] =argument[i]();
+		}
+
+		//sum +=arguments[i];
+
+		//tenary operator 
+		sum +=isNaN(parseInt( arguments[i]))?0:parseInt(arguments[i]);
+	}
+
+	return sum;
+}
+
+
+
+
+add(111,22,33,4,"aa");
+
+add(111,22,33,4,abc,"aa");  //here abc is another funciton which return number
+
+
+add(111,22,33,4,abc,=>50);  //here abc is another funciton which return number
+
+
+QQQQ//
+
+add(111,22,33,4,abc,=>50,[33,444]);  //here abc is another funciton which return number
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////eval function ////////////////////////
+
+
+
+
+///questons////
+function add()
+{
+
+
+	//console.log("Arguments are ",arguments.length);
+
+	var sum = 0;
+
+	for(let i = 0; i<arguments.length; i++)
+	{
+
+
+		if(typeof arguments[i]==="function"){
+
+
+			arguments[i] = arguments[i]();
+
+		}
+
+		 if(typeof arguments[i]==="object" && arguments[i] instanceof Array) {
+
+			 //sum += arguments[i][0]+arguments[i][1];
+			var t =0; 
+
+			for(let j=0; j<arguments[i].length;j++)
+			{
+				t+= arguments[i][j];
+			}
+
+			arguments[i]=t;
+
+		}
+
+
+		sum +=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+
+
+	}
+
+
+
+	return sum;
+
+
+}
+
+
+add(10,"20","Thirty",firstNumber,()=>50,[111,222]);
+
+
+
+
+//////////////////// testing... ////////////////////////////////////
+/// jasmine standalone : unit testing tool
+
+version: 2.8
+
+
+
+
+
+///////////////////////////////////////////////////////////
+NodeJS
+////////////////////////////////////////////////////////////
+
+builtinnode.com  : a s
+
+nodemailer module
+
+///command//
+$npm -v
+
+$npm install lite-server -g
+//or
+$npm i lite-server -g
+
+
+
+$lite-server
+
+------------------------------
+    Local: http://localhost:3000
+    External: http://10.0.0.106:3000
+
+
+---------------------------------------
+emmet cheat sheet********************
+
+
+ctrl+k+z
+
+ctrl+c : to kill server 
+
+
+ctrl+p : to switch file 
+
+span#id : tab
+
+
+cd direct..
+
+
+
+
+################## example:
+
+document.querySelector("#price").value;
+
+
+////forEach
+d=[11,33,444];
+
+
+
+d.forEach((e=>console.log(e)));
+
+
+
+//////////////////////////////
+
+
+name  ="aa;
+
+window.name;
+
+name;
+
+
+function show(){
+
+
+console.log(this.name);
+
+}
+
+
+var object={name:"amit"};
+
+var e = show.bind(object);
+
+
+e();
+
+
+show.call(object);
+/////////////////////////////
+
+
+function show(lastname,age){
+
+
+console.log(this.name,lastnamem,age);
+
+}
+
+
+show.apply(object,['kumar',21]);
+
+
+
+
+
+
+Project #1:
+------------------------------------
+$npm init -y
+
+$npm i bootstrap --save
+
+
+
+
+
+
+
+
