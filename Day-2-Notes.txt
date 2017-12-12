@@ -1,0 +1,151 @@
+
+---------------------------
+array traverse
+-------------------------------
+
+var arr=[222,333,444];
+
+var x =30;
+
+
+var d = arr.filter(y=>y==x);
+d;
+
+
+//////////////////////// splice: best for singel deletion 
+
+arr.splice(1,1) ; //from 2nd element to count 1
+
+//////sort : data type must be similar 
+
+var x=[22,333,44,566,1]
+
+
+-for number
+x.sort((a,b)=>a-b)  ; //for ascending
+
+x.sort((a,b)=>b-a)  ; //for descending
+
+
+//string ....sort 
+x.localCompare((a,b)=>a-b);
+
+"Amit".localCompare("Anil");
+
+
+--Function:
+setTimeout()
+
+
+
+
+///////////////////API:
+-fetch
+
+Jsonplaceholder  - website
+--------------------------------
+
+https://jsonplaceholder.typicode.com
+
+Google Firebase 
+
+
+localStorage....
+
+
+
+/////Step------- new bash/terminal
+Command
+--------------------------------------
+$npm install  json-server -g
+
+
+--start server
+$json-server --watch db.json --port 3004
+
+
+-----------------------------------------
+//////////////////////////////////////////
+practice:  save, sort , update
+//////////////////////////////////////////
+///////////////// CONVERT TO JSON ///////////
+
+ItemOprations.itemArrray;
+
+JSON.stringify(ItemOperations.itemArray);   //convert to json from object/array
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+TYPE SCRIPT/TypeScript
+-support to modularity like Export, import 
+---------------------------------------------------------------------------------------
+Terms:
+---------------
+-Global Namespace
+-Typescrpt Compiler 
+-Editor : Visual Studio 2015/2017, Visual Studio Code
+
+	: Sublime text, Atom, 
+	
+	
+
+Commands
+-----------------------
+$npm install -g typescript
+
+$tsc -version 
+
+
+
+compile
+------
+tsc one.ts
+
+--run
+$node one.js
+
+
+--to generate type configuration file 
+$tsc -init
+
+
+
+
+
+Modules
+--------------
+
+-AMD
+-Module
+-CommonJs
+-SystemJS
+
+-ES6 : import or export 
+
+
+////////////////////////
+-Angular CLI  : bind in all modules in on CLI
+--------------
+
+
+Syntax:
+--------------
+export class Employee{
+
+
+}
+
+
+import {Employee} from ./Employee';
+
+
+
+
+
+
+
+
+
+

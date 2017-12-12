@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="js/item.js"></script>
+    <script src="js/itemoperations.js"></script>
+    <script src="js/controller.js"></script>
+    <title>CRUD App</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>CRUD App Demo</h1>
+        <div class="form-group">
+            <label for="">ItemId</label>
+            <input id="id" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Name</label>
+            <input id="name" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Price</label>
+            <input id="price" type="range" class="form-control" min="100" max="1000">
+        </div>
+        <div class="form-group">
+            <label for="">Color</label>
+            <input id="color" type="color" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Date</label>
+            <input id="date" type="date" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">URL</label>
+            <input id="url" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <button id="add" class="btn btn-primary">Add</button>
+            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-success">Save</button>
+            <button class="btn btn-info">Load</button>
+            <button class="btn btn-success">Search</button>
+            <button class="btn btn-info">Update</button>
+            <button class="btn btn-success">Sort</button>
+            <button class="btn btn-info">Load Local</button>
+            <button class="btn btn-default">Clear All</button>
+        </div>
+        <h1>Total Records <span>0</span> Mark Record <span>0</span> UnMark Records <span>0</span></h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>name</td>
+                    <td>price</td>
+                    <td>date</td>
+                    <td>color</td>
+                    <td>url</td>
+                    <td>Operations</td>
+                </tr>
+            </thead>
+            <tbody id="items">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
