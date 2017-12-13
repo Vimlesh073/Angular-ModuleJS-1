@@ -1,0 +1,166 @@
+
+SPA
+SRP
+--------------------------
+Angular Material Design
+--------------------------
+Google Base - Cloud
+---------------------------
+Candless
+----------------------------
+
+****
+-Network Speed..
+*****
+-Sharing data between components
+-Controller is Components
+
+
+***************
+-1.JavaScript - ES5, ES6
+-2.HTML,CSS3
+-3.Type Script
+
+
+*******
+AngularJS is not component based , but Angular 2/4/5 is component based...
+
+***********
+Angular CLI?
+-Angular cli is command line interface to scaffold and build angular apps 
+
+**
+Angular CLI Setup
+- https://cli.angular.io/
+
+
+
+********** Command ***************
+$npm install -g @angular/cli		//install cli
+
+$ng new project_name			//create new project
+
+$cd project_name			//call /go to project
+
+$ng serve				//start application 
+
+////to open in browser
+localhost:4200
+
+
+//bootstrap install 
+$npm install bootstrap --save
+
+
+
+*********** plug in *************
+/// install icone; search then install
+vscode icons
+
+
+
+///incon settings
+go to file menu -> preferences -> File Icon Theme -> then select VScode icon 
+
+
+///tslint
+
+to check code and suggest 
+
+//beautify
+
+ctrl+k+f
+
+
+//auto important plugin 
+
+
+
+Project's Structure
+---------------------------------------------
+e2e  : end 2 end testing
+	-- protector to test angular test 
+
+node_module : dependency
+
+src		: source code
+
+angular_cli.json:  starting poing 
+		- ng serve : will exectue first to angular_cli.json 
+
+		-index.html ..  //under src
+		-main.ts	//first ts file , load your module 
+			-will add AppModule  or root module 
+
+		
+
+appModule	: under srs/app 
+		-appModule will load appComponent 
+		-appComponent 
+		  
+		 declartions:
+		 browser module 		
+				
+		 providers: [],		   : services......
+		 bootstrap: [AppComponent] : can be one only for root/parent 
+
+tsconfig.json 	: to compile and manage dependency  
+
+
+
+
+
+
+
+
+IMP notes:
+--------------------
+componets -> moudle (collection of components)
+
+Componets:-
+	header : nav, logo / name
+	footer : terms and condition
+	
+
+Decerator:  @Component, @ngModule   (like annotation)
+
+
+HTMl is template 
+String interpulation:
+
+
+*****************
+() 	- Event Binding		: banana syntax
+	- (input)="takeName($event)" 
+	- (click)="increment()" 
+	- (disabled)="flag"
+
+	
+[] - Property Biding
+
+
+[(ngModel)]	- 	directive ....../attribute
+
+		- is part of FormsModule : must be add in appComponent 
+
+
+
+
+************ data binding:
+-one way
+-two way data biding    : ngModel 
+
+
+****
+Deploye-
+
+$npm install    //run on server/web server
+-------------------------------
+
+
+
+
+
+
+
+
