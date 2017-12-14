@@ -1,0 +1,5 @@
+<div class="container">
+    <h2>{{title}}</h2>
+    <app-crud-detail (calltoparent)="getItemArray($event)"></app-crud-detail>
+    <app-crud-list [list]="itemModel"></app-crud-list>
+</div>

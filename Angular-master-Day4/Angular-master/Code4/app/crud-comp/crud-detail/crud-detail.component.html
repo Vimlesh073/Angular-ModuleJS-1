@@ -1,0 +1,31 @@
+<div>
+    <div class="form-group">
+        <label for="">ItemNo</label>
+        <input type="text" class="form-control" placeholder="Type Item Id" #itemId>
+    </div>
+    <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control" placeholder="Type Item Name" #itemName>
+    </div>
+    <div class="form-group">
+        <label for="">Price</label>
+        <input type="text" class="form-control" placeholder="Type Item Price" #itemPrice>
+    </div>
+    <div class="form-group">
+        <label for="">URL</label>
+        <input type="text" class="form-control" placeholder="Type Item URL" #itemUrl>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" (click)="add(itemId.value,itemName.value,itemPrice.value,itemUrl.value)">Add</button>
+        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-info">Update</button>
+        <button class="btn btn-success">Save</button>
+        <button class="btn btn-info">Load Local</button>
+        <button class="btn btn-warning">Sort</button>
+        <button class="btn btn-success">Load From Server</button>
+        <button class="btn btn-default">Clear All</button>
+
+
+
+    </div>
+</div>

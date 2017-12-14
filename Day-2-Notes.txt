@@ -141,6 +141,51 @@ export class Employee{
 import {Employee} from ./Employee';
 
 
+////////////////////////////////////////////
+API or server call ...
+///////////////////////////////////////////
+
+
+
+----add in app.mdoule.ts
+
+
+
+import {HttpClientModule} from '@angular/common/http'			: angular 5 
+
+
+///import
+HttpClientModule
+
+
+///// in service : 
+
+import {HttpClient) from '@angular/common/http'
+
+
+
+
+  constructor(private http:HttpClient){
+
+    this.name ="";
+    this.flag=false;
+  }
+
+ 
+
+
+
+
+///////////////cross horizen header  : for security 
+
+
+cros   headers  in servlet 
+
+
+
+
+
+
 
 
 

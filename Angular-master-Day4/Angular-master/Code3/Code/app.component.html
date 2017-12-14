@@ -1,0 +1,22 @@
+<h1>Welcome to Angular</h1>
+Welcome {{title}}
+<input type="text" (input)="takeName($event)" placeholder="Type Your Name">
+<h2 [class]="myclass">Your Name is {{name}}&nbsp;{{lastname}}</h2>
+
+<input type="text" [(ngModel)]="lastname" placeholder="Type Last Name">
+
+
+<button class="btn btn-primary" (click)="increment()">+ {{counter}}</button>
+<button [disabled]="flag">Logout</button>
+
+<div class="alert-danger" [hidden]="flag">
+    Show Me
+</div>
+
+<h2>2 Way DataBinding Example</h2>
+<input [(ngModel)]="price" type="text">
+<input type="text" [(ngModel)]="qt">
+<br> Amount is {{price*qt}}
+
+
+<salary-calc></salary-calc>

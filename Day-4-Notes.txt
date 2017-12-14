@@ -1,0 +1,113 @@
+brackets... is ide for html5
+
+spa
+rpa
+pwa 
+
+
+aonic /css for mobile: bootstrap
+360 
+
+Auto generate HTML
+--------------------------------------------------
+///ngFor
+///ngIf
+////ngPipe 
+
+///validation 
+/////routing
+
+
+
+****************
+All images will be in assests folder ..
+****************
+-paging		: server just pass start index and # of rows to be get returned
+-State management	: token based approached ..
+
+			:manifest="filename... app.manifest"  for cache features of html5
+
+			: navigator....to check for schynchronization to check online and offline
+
+			: HTML - 5 
+			: html 5 test...
+-Upload
+-Download
+
+
+--base path...
+
+change in href...
+	./ProjectName
+
+JIT : ng serve (jit based deployment) 
+AOT : ahead of time compilation 
+
+
+--vender bundlar map : contains all components....
+
+
+
+/////ng Pipe : installation
+https://www.npmjs.com/package/ng-pipe
+
+$ npm install ngx-pipes --save
+Pipes are also injectable and can be used in Components / Services / etc..
+import {ReversePipe} from 'ngx-pipes/src/app/pipes/array/reverse';
+ 
+@Component({
+  // ..
+  providers: [ReversePipe]
+})
+export class AppComponent {
+  constructor(private reversePipe: ReversePipe) {
+    this.reversePipe.transform('foo'); // Returns: "oof"
+  }
+  // ..
+}
+
+
+
+
+
+////////////create component using command
+$ng g c crud-comp			- for indivisual
+$ng g c crud-comp/crud-list		- fo component inside sub components 
+
+//to install type script compiler 
+$npm install typescript -g
+
+
+//// compile and deployee
+$ng build --prod --alot
+
+
+$ng build		///for jit , file will be heavy
+
+//out file is dist 
+
+
+//////fire event or emit event
+
+(calltoparent)="getItemArray($event)"			//events
+[list]="itemModel"					//properties
+
+{{}}							//expression to assign value
+
+
+
+
+
+////////////////filter
+
+var x=[11,222,1,33,4]
+var z=x.filer(y=>y==10);
+
+z;
+
+z.length>0?"p":x.pusss or your false return ;
+
+return x;
+
+
+

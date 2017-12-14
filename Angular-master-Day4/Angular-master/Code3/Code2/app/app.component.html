@@ -1,0 +1,41 @@
+<h1>Welcome to Angular</h1>
+Welcome {{title}}
+<input type="text" (input)="takeName($event)" placeholder="Type Your Name">
+<h2 [class]="myclass">Your Name is {{name|titlecase}}&nbsp;{{lastname}}</h2>
+
+<input type="text" [(ngModel)]="lastname" placeholder="Type Last Name">
+
+
+<button class="btn btn-primary" (click)="increment()">+ {{counter}}</button>
+<button [disabled]="flag">Logout</button>
+
+<div class="alert-danger" [hidden]="flag">
+    Show Me
+</div>
+
+<h2>2 Way DataBinding Example</h2>
+<input [(ngModel)]="price" type="text">
+<input type="text" [(ngModel)]="qt">
+<br>
+<div *ngIf="price>9000">
+    <p [ngClass]="{'red':price>9000,'green':price<=9000}"> Amount is </p>{{price*qt}}
+    <p [ngStyle]="{'background-color':price>9000?'red':'green'}">NG STYLE</p>
+    <salary-calc></salary-calc>
+</div>
+<hr>
+<ul>
+    <li *ngFor="let fruit of fruitNames;let i=index">
+        {{fruit}} {{i+1}}
+    </li>
+</ul>
+
+<div [ngSwitch]="counter">
+    <p *ngSwitchCase="1"><span>Ram</span></p>
+    <p *ngSwitchCase="2">Shyam</p>
+    <p *ngSwitchCase="3">Sohan</p>
+    <p *ngSwitchCase="4">Mohan</p>
+    <p *ngSwitchCase="5">Mike</p>
+    <p *ngSwitchCase="6">Tim</p>
+    <p *ngSwitchCase="7">New Movie</p>
+    <p *ngSwitchDefault>Unknown</p>
+</div>

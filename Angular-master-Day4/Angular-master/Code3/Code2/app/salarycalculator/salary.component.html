@@ -1,0 +1,33 @@
+<div id="container">
+    <div id="form-group">
+        <label for="">Salary</label>
+        <input type="text" class="form-control" (input)="takeSalary($event)" placeholder="Type Salary Here">
+        <button class="btn btn-primary" (click)="computeIt()">Compute</button>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <td>HRA : {{hra}}</td>
+        </tr>
+        <tr>
+            <td>DA : {{da}}</td>
+        </tr>
+        <tr>
+            <td>TA : {{ta}}</td>
+        </tr>
+        <tr>
+            <td>GS : {{gs}}</td>
+        </tr>
+        <tr>
+            <td>PF : {{pf}}</td>
+        </tr>
+        <tr>
+            <td>Tax : {{tax}}</td>
+        </tr>
+        <tr>
+
+            <td [class]="color">NS : {{ns|currency:'INR':true:'2.2-4'}}</td>
+        </tr>
+    </table>
+</div>
+
+ID Is {{id|subpipe:'prod':3}} {{"amit"|uppercase|slice:1:3}}

@@ -1,0 +1,360 @@
+var a =100;
+undefined
+typeof a;
+"number"
+a=1;
+1
+typeof a;
+"number"
+a=100000;
+100000
+typeof a;
+"number"
+a=100.20;
+100.2
+typeof a;
+"number"
+a="Amit";
+"Amit"
+typeof a;
+"string"
+a='Amit';
+"Amit"
+typeof a;
+"string"
+a= true;
+true
+typeof a;
+"boolean"
+a= {};
+{}
+typeof a;
+"object"
+a instanceof Object;
+true
+typeof Object;
+"function"
+a= {id:1001,name:'Amit'};
+{id: 1001, name: "Amit"}
+a.id;
+1001
+a.name;
+"Amit"
+a.address="Delhi";
+"Delhi"
+a;
+{id: 1001, name: "Amit", address: "Delhi"}
+delete a.id;
+true
+a;
+{name: "Amit", address: "Delhi"}
+a=[10,20,30,40,50];
+(5) [10, 20, 30, 40, 50]
+typeof a;
+"object"
+a instanceof Array;
+true
+typeof Array;
+"function"
+a[0];
+10
+function test(){
+console.log("This is a function ");
+}
+undefined
+typeof test;
+"function"
+test();
+VM1205:2 This is a function 
+undefined
+test(10,20,30);
+VM1205:2 This is a function 
+undefined
+test();
+VM1205:2 This is a function 
+undefined
+test([90,89]);
+VM1205:2 This is a function 
+undefined
+test("Amit",999);
+VM1205:2 This is a function 
+undefined
+var d = test;
+undefined
+typeof d;
+"function"
+d;
+ƒ test(){
+console.log("This is a function ");
+}
+d();
+VM1205:2 This is a function 
+undefined
+d= null;
+null
+typeof d;
+"object"
+d="";
+""
+typeof d;
+"string"
+var tt;
+undefined
+typeof tt;
+"undefined"
+d = 100;
+100
+var e  = d/0;
+undefined
+e;
+Infinity
+typeof e;
+"number"
+d;
+100
+var e = d / "amit";
+undefined
+e;
+NaN
+typeof e;
+"number"
+a= 100;
+100
+b="100";
+"100"
+typeof a;
+"number"
+typeof b;
+"string"
+a==b;
+true
+a===b;
+false
+function show(){
+console.log("this is a show ");
+}
+undefined
+show();
+VM2432:2 this is a show 
+undefined
+var display=function(){
+console.log("this is display");
+}
+undefined
+display();
+VM2646:2 this is display
+undefined
+typeof display;
+"function"
+var add = (a,b)=>a+b;
+undefined
+typeof add;
+"function"
+add(10,20);
+30
+var add = (a,b)=>{
+console.log("a is "+a+" and B is "+b);
+return a+b;
+}
+undefined
+var add = (a,b)=>{
+console.log(`a is ${a} and B is ${b}`);
+return a+b;
+}
+undefined
+add(10,20);;
+VM3676:2 a is 10 and B is 20
+30
+function add(x,y){
+return x + y;
+}
+undefined
+add(10,20);
+30
+function jQuery(){
+}
+undefined
+var $=jQuery;
+undefined
+$();
+undefined
+function add(){
+
+}
+undefined
+console.dir(add);
+VM4851:1 ƒ add()arguments: nullcaller: nulllength: 0name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM4802:1[[Scopes]]: Scopes[1]
+undefined
+function add(){
+console.log("Arguments are ",arguments.length);
+}
+undefined
+add();
+VM4970:2 Arguments are  0
+undefined
+add(10,20);
+VM4970:2 Arguments are  2
+undefined
+add(10,20,"ten");
+VM4970:2 Arguments are  3
+undefined
+function add(){
+//console.log("Arguments are ",arguments.length);
+for(var i = 0; i<arguments.length; i++){
+
+}
+}
+undefined
+function test(){
+console.log("::: D is "+d);
+if(10>2){
+var d = 1000;
+}
+console.log("D is "+d);
+}
+undefined
+test();
+VM5393:2 ::: D is undefined
+VM5393:6 D is 1000
+undefined
+function test(){
+console.log("::: D is "+d);
+if(10>2){
+let d = 1000;
+}
+console.log("D is "+d);
+}
+undefined
+test();
+VM5448:2 ::: D is 100
+VM5448:6 D is 100
+undefined
+function test11(){
+console.log("::: D is "+d);
+if(10>2){
+let d = 1000;
+}
+console.log("D is "+d);
+}
+undefined
+test();
+VM5448:2 ::: D is 100
+VM5448:6 D is 100
+undefined
+function test11(){
+
+if(10>2){
+let d1 = 1000;
+}
+console.log("D is "+d1);
+}
+undefined
+test11();
+VM5500:6 Uncaught ReferenceError: d1 is not defined
+    at test11 (<anonymous>:6:21)
+    at <anonymous>:1:1
+test11 @ VM5500:6
+(anonymous) @ VM5520:1
+function test11(){
+
+if(10>2){
+let d2 = 1000;
+console.log("Inside if "+d2);
+}
+console.log("Outside D2 is "+d2);
+}
+undefined
+test11();
+VM5602:5 Inside if 1000
+VM5602:7 Uncaught ReferenceError: d2 is not defined
+    at test11 (<anonymous>:7:30)
+    at <anonymous>:1:1
+test11 @ VM5602:7
+(anonymous) @ VM5622:1
+function test11(){
+q = 1000;
+if(10>2){
+let d2 = 1000;
+console.log("Inside if "+d2);
+}
+console.log("Outside D2 is "+d2);
+}
+undefined
+q;
+VM5670:1 Uncaught ReferenceError: q is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM5670:1
+test11();
+VM5660:5 Inside if 1000
+VM5660:7 Uncaught ReferenceError: d2 is not defined
+    at test11 (<anonymous>:7:30)
+    at <anonymous>:1:1
+test11 @ VM5660:7
+(anonymous) @ VM5692:1
+q;
+1000
+function add(){
+//console.log("Arguments are ",arguments.length);
+var sum = 0;
+for(let i = 0; i<arguments.length; i++){
+sum +=arguments[i];
+}
+return sum;
+}
+undefined
+add();
+0
+add(10);
+10
+add(10,20,30,40,50);
+150
+add(10,"20",30,40,50);
+"1020304050"
+function add(){
+//console.log("Arguments are ",arguments.length);
+var sum = 0;
+for(let i = 0; i<arguments.length; i++){
+sum +=parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"20",30,40,50);
+150
+add(10,"20","Thirty",40,50);
+NaN
+isNaN("10"+"ten");
+true
+function add(){
+//console.log("Arguments are ",arguments.length);
+var sum = 0;
+for(let i = 0; i<arguments.length; i++){
+sum +=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"20","Thirty",40,50);
+120
+function firstNumber(){
+return 1000;
+}
+undefined
+add(10,"20","Thirty",firstNumber,50);
+80
+function add(){
+//console.log("Arguments are ",arguments.length);
+var sum = 0;
+for(let i = 0; i<arguments.length; i++){
+if(typeof arguments[i]==="function"){
+arguments[i] = arguments[i]();
+}
+sum +=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"20","Thirty",firstNumber,50);
+1080
+add(10,"20","Thirty",firstNumber,()=>50);
+1080

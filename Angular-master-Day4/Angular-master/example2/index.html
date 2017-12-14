@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calc Example</title>
+    <script src="js/model.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><label for="">First Number</label></td>
+            <td><input type="text" id="firstno" placeholder="Type First Number Here"></td>
+        </tr>
+        <tr>
+            <td><label for="">Second Number</label></td>
+            <td><input type="text" id="secondno" placeholder="Type Second Number Here"></td>
+        </tr>
+        <tr>
+            <td><label for="">Result</label></td>
+            <td><label id="result">0</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            <table>
+                <tr>
+                <td><button data-operationname="add" class="opr">+</button></td>
+            <td><button data-operationname="subtract" class="opr">-</button></td>
+            <td><button data-operationname="multiply" class="opr">*</button></td>
+            <td><button data-operationname="divide" class="opr">/</button></td>
+            <td><button>Clear All</button></td> 
+        </tr>
+    </table>
+        </td>  
+        </tr>
+    </table>
+</body>
+
+</html>

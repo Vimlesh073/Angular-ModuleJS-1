@@ -1,0 +1,86 @@
+var img = document.createElement("img");
+undefined
+img;
+<img>​
+img.src = "https://image.flaticon.com/icons/png/128/61/61456.png";
+"https://image.flaticon.com/icons/png/128/61/61456.png"
+img;
+<img src=​"https:​/​/​image.flaticon.com/​icons/​png/​128/​61/​61456.png">​
+var dd = [10,20,30,40,50];
+undefined
+dd.splice(1,1);
+[20]
+dd;
+(4) [10, 30, 40, 50]
+dd.splice(1,2);
+(2) [30, 40]
+var f = setTimeout(()=>{
+console.log("Time out is Called ");
+return 1000;
+},3000);
+undefined
+VM5683:2 Time out is Called 
+f;
+1
+function synchFn(){
+console.log("Synch is Called ");
+setTimeout(()=>{
+console.log("Time out is Called ");
+return 1000;
+},3000);
+console.log("Synch is End ");
+}
+undefined
+synchFn();
+VM5826:2 Synch is Called 
+VM5826:7 Synch is End 
+undefined
+VM5826:4 Time out is Called 
+var pr = new Promise((resolve,reject)=>{
+setTimeout(()=>{
+console.log("Time out is Called ");
+resolve(1000);
+//return 1000;
+},3000);
+});
+undefined
+VM6030:3 Time out is Called 
+pr.then(data=>console.log("result is ",data));
+VM6218:1 result is  1000
+Promise {[[PromiseStatus]]: "resolved", [[PromiseValue]]: undefined}
+pr.then(data=>console.log("result is ",data)).catch(err=>console.log("Error is ",err));
+VM6551:1 result is  1000
+Promise {[[PromiseStatus]]: "resolved", [[PromiseValue]]: undefined}
+fetch("http://localhost:3004/mobiles",{method:'GET'}).then((response)=>console.log(response.json());
+VM7911:1 Uncaught SyntaxError: missing ) after argument list
+fetch("http://localhost:3004/mobiles",{method:'GET'}).then((response)=>console.log(response.json()));
+Promise {[[PromiseStatus]]: "pending", [[PromiseValue]]: undefined}
+VM7922:1 Promise {[[PromiseStatus]]: "pending", [[PromiseValue]]: undefined}
+VM7922:1 Fetch finished loading: GET "http://localhost:3004/mobiles".
+(anonymous) @ VM7922:1
+fetch("http://localhost:3004/mobiles",{method:'GET'}).then((response)=>console.log("Response is ",response.json()));
+Promise {[[PromiseStatus]]: "pending", [[PromiseValue]]: undefined}
+VM7938:1 Response is  Promise {[[PromiseStatus]]: "pending", [[PromiseValue]]: undefined}__proto__: Promise[[PromiseStatus]]: "resolved"[[PromiseValue]]: Array(4)0: {id: 1001, name: "Samsung Mobile", price: 30000, url: "http://c2c.sulekhalive.com/lcproducts/mobiles/images/samsung/album/large/samsung-z3(2).jpg"}1: {id: 1002, name: "Apple Phone Mobile", price: 40000, url: "https://4.imimg.com/data4/LY/WP/GLADMIN-8934545/apple-mobiles-500x500.jpg"}2: {id: 1003, name: "Lg Mobile", price: 20000, url: "http://www.lg.com/uk/images/mobile-phones/MD05609550/stylus-350.jpg"}3: {id: 1004, name: "MI Mobile", price: 10000, url: "https://www.91-img.com/pictures/xiaomi-mi-5s-mobile-phone-large-1.jpg"}length: 4__proto__: Array(0)
+VM7938:1 Fetch finished loading: GET "http://localhost:3004/mobiles".
+(anonymous) @ VM7938:1
+fetch("http://localhost:3004/mobiles",{method:'GET'}).then((response)=>response.json().then(object)=>console.log(object));
+VM8064:1 Uncaught SyntaxError: Unexpected token .
+fetch("http://localhost:3004/mobiles",{method:'GET'}).then((response)=>response.json().then(object=>console.log(object)));
+Promise {[[PromiseStatus]]: "pending", [[PromiseValue]]: undefined}
+VM8093:1 (4) [{…}, {…}, {…}, {…}]0: {id: 1001, name: "Samsung Mobile", price: 30000, url: "http://c2c.sulekhalive.com/lcproducts/mobiles/images/samsung/album/large/samsung-z3(2).jpg"}1: {id: 1002, name: "Apple Phone Mobile", price: 40000, url: "https://4.imimg.com/data4/LY/WP/GLADMIN-8934545/apple-mobiles-500x500.jpg"}2: {id: 1003, name: "Lg Mobile", price: 20000, url: "http://www.lg.com/uk/images/mobile-phones/MD05609550/stylus-350.jpg"}3: {id: 1004, name: "MI Mobile", price: 10000, url: "https://www.91-img.com/pictures/xiaomi-mi-5s-mobile-phone-large-1.jpg"}length: 4__proto__: Array(0)
+VM8093:1 Fetch finished loading: GET "http://localhost:3004/mobiles".
+(anonymous) @ VM8093:1
+var x = [90,1,8,11,2,99];
+undefined
+x.sort(a,b=>a-b);
+VM8631:1 Uncaught ReferenceError: a is not defined
+    at <anonymous>:1:8
+(anonymous) @ VM8631:1
+x.sort((a,b)=>a-b);
+(6) [1, 2, 8, 11, 90, 99]
+x.sort((a,b)=>b-a);
+(6) [99, 90, 11, 8, 2, 1]
+"Amit".localeCompare("Anil");
+-1
+var bb = ["a",90,true,[90,100]];
+undefined
