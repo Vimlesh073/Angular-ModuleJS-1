@@ -105,7 +105,37 @@ document.
 
 
 
+////////////////////////
+two data binding
+
+
+([ngModel])  = 
+
+
+
+////form validation 
+//////////ng model validation -- must have ngmodel and name
+///how to create id
+
+#userName="ngModel"  name="username"
+
+
+
+<form (ngSubmit)="formSubmit(form)" #form="ngForm">
+
+
+<input required type="text" ngModel #id=ngModel name="abcd" pattern="[a-5]" />
 
 
 
 
+</form>
+
+
+
+
+
+//reactive validation 
+-formGroup
+-formControl
+-add Fromr control to form group 
