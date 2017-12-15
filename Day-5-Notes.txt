@@ -1,0 +1,111 @@
+https://coursetro.com/courses/12/Learn-Angular-4-from-Scratch
+
+fishing.....
+
+
+google remix....
+
+-habit(21d) - excerice - routine -expertise 
+Concept/Structure Stur
+Syntax  strugel
+
+
+$npm start
+$ng serve 
+
+
+/////////////////////////////////////////////////////////////////////
+---------------------- parent and child ------------
+
+(calltoparent)="getItemArray($event)		: for function
+
+[list] = "intemModel				: data 
+
+
+
+//////////////////debug///////////////////////////
+console.log()
+add debugger ...in web browser
+	-> go to inspect  -> then  go to souces -> go pack  ..-> click on line number
+
+
+
+
+////////////////////////////////////////////////////////////////
+
+Topic:		: ilikelogic.com
+--------------------------
+Life Cycle
+
+
+
+
+
+////Routing//////
+Single Page Application (SPA)
+
+
+--step 1
+import {RounterModule, Routes} from '@angular/router'
+
+
+const routes:Routes =[
+
+{path:'shoes,component:ShoeComponent.children:[
+
+	{path:'sports',component:SportSheComponent}]},
+{path:'mobiles/:price/:brand',component:MobileComonent},
+{path:'',component:HomeComponent},
+{path:'error/:code/:msg',componet:ErrorComponent},
+{}
+
+]
+
+
+--step 2
+
+///Register Routers in imporsts
+
+
+--step 3
+
+///Route outlet : put into app.compoents....
+
+
+
+
+---tempale :is container of html 
+
+must be in `` bactic sign 
+
+
+--step 4
+///linking
+
+
+
+<ul>
+<li [routerLinkActiveOptiions]="{exact:true}" routerLinkActive="active">
+
+<a [routerLink]="'/'"> Home </a>
+<a  [routerLink]="mobiles/90000/Apple"> Home </a>
+
+
+</li>
+
+</ul>
+
+
+
+
+/////////////////// how to edit ........any site
+
+///////////
+document.
+
+
+
+
+
+
+

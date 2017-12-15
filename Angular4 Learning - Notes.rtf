@@ -1,0 +1,365 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang9\b\f0\fs22 Angular 4 Tutorial\b0\par
+So, do you want to learn the fundamentals of Angular 4 in a quick and easy way? You have come to the right place! You don\rquote t need familiarity with any previous versions of Angular. In this tutorial, I\rquote m going to take you from the ground up and show you Angular 4 in action. You only need a basic familiarity with HTML, CSS, and JavaScript.\par
+\par
+\b What is Angular?\par
+\b0 Angular is a framework for building client applications in HTML, CSS, and either JavaScript or a language like TypeScript that can be compiled (more accurately, transpiled) to JavaScript. If you have never worked with TypeScript before, don\rquote t worry. I will give you the basics in order to complete this tutorial.\par
+\par
+\b What is TypeScript?\b0\par
+TypeScript is a superset of JavaScript. That means any valid JavaScript code is valid TypeScript code. But many prefer TypeScript because it has additional features that we don\rquote t have in the current version of JavaScript that most browsers understand. So, when building Angular applications, we need to have our TypeScript code converted into JavaScript code that browsers can understand. This process is called transpilation which is the combination of translate and compile. And that\rquote s the job of  the TypeScript compiler.\par
+\par
+\b Why do I need a framework like Angular?\par
+\b0 A common question a lot of beginners ask me is: \ldblquote Why do we need Angular in the first place? What\rquote s wrong with the plain old vanilla JavaScript and jQuery?\rdblquote .\par
+\par
+There is nothing inherently wrong with using vanilla JavaScript/jQuery. In fact, a lot of web applications out there are built this way. But as your application grows, structuring your code in a clean and maintainable and more importantly, testable way, becomes harder and harder. I\rquote m not saying this is impossible. But using a framework like Angular, makes your life far easier. Sure, there is a learning curve involved, but once you master Angular, you\rquote ll be able to build client applications faster and easier.\par
+\par
+\b Is Angular better than React/Vue.js?\b0\par
+These days there is a lot of debate between Angular vs React vs Vue.js. Whether Angular is better than React or Vue.js depends on how you define \ldblquote better\rdblquote . Each of these frameworks have strengths and weaknesses and there is no one shiny framework that makes every developer in the world happy. My suggestion to you is to learn the fundamentals of each of these frameworks and choose the one that works best for each project depending on its requirements.\par
+\par
+\b Getting the tools\par
+\b0 Now, let\rquote s get dive into some code and get our hands dirty! The first thing you need to install is the latest version of Node. So, if you haven\rquote t installed Node, head over to nodejs.org, and install the latest stable version.\par
+\par
+Node comes with a tool called Node Package Manager or NPM, which is used for installing third-party libraries. In this tutorial, we\rquote re going to use NPM to install Angular CLI. That is a command-line tool we use to create a new Angular project. It is also used for generating some boilerplate code during development (such as components, services, etc) as well as building an application for deployment. We do all this in the terminal.\par
+\par
+So, once again in the Terminal, run the following command to install Angular CLI:\par
+\b\par
+npm install -g @angular/cli\b0\par
+The -g flag stands for global. If you don\rquote t put -g here, Angular CLI will be installed only in the current folder, and it\rquote s not going to be accessible anywhere else.\par
+\par
+If you\rquote re on Mac, you need to put sudo at the beginning of this command to execute it as an administrator; otherwise, you\rquote ll get permission errors.\par
+\par
+\b Your First Angular App\par
+\b0 So with Angular CLI in place, now we can create a new Angular project using the following command:\par
+\par
+\b ng new hello-world\b0\par
+As you can see, we can access Angular CLI using ng. We provide a command (in this case new) to instruct Angular CLI on what we want it to do for us. Here, we are telling Angular CLI to generate a new project called \ldblquote hello-world\rdblquote  and store it in a folder with the same name. We\rquote ll be looking at these generated files shortly. For now, let\rquote s finish the first step and see our new Angular app in the browser.\par
+\par
+So, run the following commands in the terminal:\par
+\par
+\b cd hello-world\par
+npm install \b0\par
+ng serve\par
+With the second command (npm install) we install all the dependencies of our application. The last command (ng serve) compiles our application and hosts it using a lightweight web server. Now, we can access our application at {\field{\*\fldinst{HYPERLINK "http://localhost:4200"}}{\fldrslt{\ul\cf1 http://localhost:4200}}}\f0\fs22 . \par
+\par
+So, open up your browser and navigate to this address. You should see the following page:\par
+\par
+\par
+\par
+Congratulations! You generated and served your first Angular 4 application. Now, let\rquote s have a quick look at the files and folders in our new Angular project.\par
+\par
+\b Structure of Angular Projects\par
+\b0 Inside the generated folder, you\rquote ll find the following top-level folders:\par
+\b\par
+e2e: includes end-to-end tests.\par
+node_modules: all the third-party libraries that our project is dependent upon.\par
+src: the actual source code of our Angular application.\par
+99.9% of the time you\rquote ll be working with the files inside the src folder. But let\rquote s quickly overview the other files we have in this project:\par
+\par
+angular-cli.json: a configuration file for Angular CLI. We use this file to import third-party stylesheets or define additional environments (eg testing environment) for our application.\par
+\par
+package.json: a standard file for Node-based projects. It contains metadata about our project, such as its name, version as well as the list of its dependencies.\par
+\par
+protractor.conf.js: Protractor is a tool for running end-to-end tests for Angular projects. We hardly need to modify this file.\par
+\par
+karma.conf.js: Karma is a test runner for JavaScript applications. This file contains some configuration for Karma. We rarely need to modify this file.\par
+\par
+tsconfig.json: includes setting for the TypeScript compiler. Again, we hardly, if ever, need to modify this file.\par
+\par
+tslint.json: includes the settings for TSLint which is a popular tool for linting TypeScript code. \par
+\b0 That means it checks the quality of our TypeScript code based on a few configurable parameters. This is especially important in a team environment to ensure that everyone follows the same conventions and produces code of the same quality. We can run linting on our code using Angular CLI in the terminal or we can add it to our editor as a plug-in.\par
+\par
+So, as you see, all these files are configuration files that work smoothly out of the box. Unless you want to customize them for your specific environment, you don\rquote t ever have to modify them.\par
+\par
+\b Architecture of Angular Apps\par
+\b0 Ok, so you\rquote ve learned how to generate and serve a new Angular project. You\rquote ve also learned about various files and folders in a new Angular project. Now, let\rquote s look at the architecture of Angular applications.\par
+\par
+The most fundamental building block in an Angular application is a component. You can think of a component as a view component. It represents a view or part of a view (what the user sees). A component consists of three pieces:\par
+\par
+\par
+\b\par
+HTML markup: to render that view\par
+State: the data to display on the view\par
+Behavior: the logic behind that view. For example, what should happen when the user clicks a button.\par
+ \par
+\b0\par
+A component can contain other components. For example, let\rquote s imagine you\rquote re going to build a web app like Twitter using Angular. In your implementation, you may have a tree of component likes this:\par
+\par
+\b App\par
+NavBar\par
+SideBar\par
+ContentArea\par
+Tweets\par
+Tweet\par
+Like\par
+\b0  \par
+\par
+Now, at the root of the application, we have a component called AppComponent. This is the root of every Angular application. Our AppComponent contains 3 child components: NavBar, SideBar, and ContentArea.\par
+\par
+The reason for such separation is because the navigation bar is logically a separate part of the view. It has its own markup, state, and behavior.  We can encapsulate all that using a component called NavBarComponent. This way, when modifying or extending the navigation bar of our application, we can focus on a small component with a lightweight template.\par
+\par
+Benefits of Component-based Architecture\par
+As you can see, this component-based architecture makes our applications more organized and maintainable. Plus, we can potentially reuse these components in various parts of an application or in an entirely different application. For example, tomorrow, we can grab this NavBarComponent and put it in an entirely different project. We just need to modify the links. But all the HTML markup will remain the same.\par
+\par
+Back to our tree of components, you can see that inside the content area, we have a tree of components like this:\par
+\par
+\b Tweets\par
+Tweet\par
+Like\par
+\b0 Again, this is one way to model this. We don\rquote t necessarily have to have a separate component for the list of tweets and each tweet. We could combine TweetsComponent and TweetComponent into one component. But, I\rquote d like to separate the LikeComponent because we could potentially reuse this like button somewhere else in this application or in another application. Even if we don\rquote t reuse it, separating the markup, state and behavior of this like button into a separate component, makes our application more maintainable and testable.\par
+\par
+An Angular Component in Action\par
+Now, let\rquote s inspect a real component in action.\par
+\par
+Back to our project, open up the src/app folder. Inside this folder, you should see the following files:\par
+\par
+\b app.component.css\par
+app.component.html\par
+app.component.spec.ts\par
+app.component.ts\par
+app.module.ts\par
+ \par
+\par
+\b0 These files represent AppComponent, which is the root component for our application. In this particular case, all these files are inside the app folder. But when we generate a new component using Angular CLI, all the files that make up a component will be grouped by a folder.\par
+\par
+So, in terms of the implementation, each component in an Angular project is physically implemented using four files:\par
+\par
+A CSS file: where we define all the styles for that component. These styles will only be scoped to this component and will not leak to the outside. This is what Shadow DOM does. But not all browsers today support Shadow DOM. So, Angular uses a technique to emulate the Shadow DOM.\par
+An HTML file: contains the markup to render in the DOM.\par
+A spec file: includes the unit tests.\par
+A TypeScript file: where we define the state (the data to display) and behavior (logic) of our component.\par
+You will also see an app.module.ts file.  This file defines the root module of our application and tells angular how to assemble the app.\par
+\par
+ \par
+\par
+\b Creating a Component\par
+\b0 Now that you know what a component is, let\rquote s use Angular CLI and add a new component to this application.\par
+\par
+Imagine we want to build an e-commerce application. On the home page, we\rquote re going to display the list of products and below each product, we want to have a button for adding that product to the shopping cart.\par
+\par
+So, for this exercise, we want to create a super simple component to represent each product on the home page. This component will include the HTML markup to display that product, and it\rquote ll respond to the click event of a button to add that product to the shopping cart.\par
+\par
+When we click this button, it also shows the number of products of this type in the shopping cart. Initially, the number should be 0. Every time we click the Add to Shopping Cart button, the number is increased. Of course, in a real-world application, there\rquote s far more complexity involved. For example, we may want to call some back-end services to store this item in a database. But for now, let\rquote s just focus on the fundamentals. If you understand the fundamentals well, you can always add these other details later. So, for now, forget about the server-side, databases and other complexities.\par
+\par
+Ok, we\rquote re ready to create a component. We can manually create all those four files by hand, but there is a faster way. We can use Angular CLI!\par
+\par
+Generating a Component Using Angular CLI\par
+Run the following command in the terminal, inside the project folder:\par
+\par
+\b ng g c product\par
+\b0 Here, g is short for generate, c is short for component and product is the name of our component. Now, if you look at the project folder, inside the src/app folder, you should see a new folder called product. Expand this folder. You should see the following files:\par
+\par
+product.component.css\par
+product.component.html\par
+product.component.spec.ts\par
+product.component.ts\par
+Open product.component.ts. This is what you should see:\par
+\par
+\par
+import \{ Component, OnInit \} from '@angular/core';\par
+\par
+@Component(\{\par
+  selector: 'app-product',\par
+  templateUrl: './product.component.html',\par
+  styleUrls: ['./product.component.css']\par
+\})\par
+export class ProductComponent implements OnInit \{\par
+  constructor() \{ \}\par
+\par
+  ngOnInit() \{ \par
+  \}\par
+\par
+If this code looks complex to you, don\rquote t worry! I\rquote m going to make it super simple. It\rquote s actually far easier than you may think!\par
+\par
+For now, I want you to note the value of the selector property. It\rquote s app-product. This is a CSS selector. So app-product represents an element by this name. With this, we can extend the HTML vocabulary. Anywhere we add this app-product element, Angular will render the HTML markup of ProductComponent inside that element. So, let\rquote s add this element to the template for our AppComponent.\par
+\par
+\b Using a Component\par
+\b0 Open up src/app/app.component.html. Replace all the markup with the following:\par
+\par
+<app-product></app-product>\par
+Now, our application includes a tree of components:\par
+\par
+\b App\par
+Product\par
+\b0 At the root of this tree, we have our AppComponent. This component includes a child component: ProductComponent. \par
+\par
+Save the changes. Back to the browser, now, you should see this:\par
+\par
+\par
+\par
+Our ProductComponent has a simple template that includes \ldblquote product works!\rdblquote . We can modify product.component.html and add some complex markup here. For example, we can use Bootstrap 4 cards to render the product inside a card.\par
+\par
+\par
+But for now, we don\rquote t want to waste our time and make our application pretty. Our focus is on understanding Angular. We can always come back to the template for ProductComponent and improve it.\par
+\par
+\b Examining an Angular Component\par
+\b0 You successfully generated and used a component. Now, let\rquote s examine this component in detail. So, open up product.component.ts. Here is the code for reference:\par
+\par
+import \{ Component, OnInit \} from '@angular/core';\par
+\par
+@Component(\{\par
+  selector: 'app-product',\par
+  templateUrl: './product.component.html',\par
+  styleUrls: ['./product.component.css']\par
+\})\par
+export class ProductComponent implements OnInit \{\par
+  constructor() \{ \}\par
+\par
+  ngOnInit() \{ \par
+  \}\par
+Inside of this file, we have a TypeScript class called ProductComponent.\par
+\par
+\b What is a Class?\par
+\b0 A class is a fundamental building block of many object-oriented programming languages. It\rquote s a container for a bunch of related functions and variables.\par
+\par
+So, unlike vanilla JavaScript where all our functions and variables are hanging from the global namespace, we put them in containers called classes. With these classes, we don\rquote t pollute the global namespace and as a result, we won\rquote t have one function overwriting another function with the same name. Because these functions are now in separate containers (classes). Also, because each class includes a bunch of highly related functions and variables, our code is more organized and maintainable.\par
+\par
+In object-oriented programming terms, we call these functions and variables that reside in a class, methods and fields/properties respectively. Fields and properties are technically different but they are often used interchangeably. A field is like a variable where we store some data. A property looks like a field from the outside, but internally, it is a function around a field that gives us read or write access to that field. If this sounds confusing, don\rquote t worry about it now. I\rquote m planning to publish a separate post about TypeScript. For now, you can assume fields and properties are the same, even though they are not!\par
+\par
+\b Example of a Class\par
+\b0 So, in product.component.ts, we have a class called ProductComponent. This class has 2 functions (methods): constructor and ngOnInit.\par
+\par
+export class ProductComponent implements OnInit \{\par
+  constructor() \{ \}\par
+\par
+  ngOnInit() \{ \par
+  \}\par
+Constructor is a reserved keyword in TypeScript. A method by that name is a special method in a class. This method is called automatically when we create an instance of that class.\par
+\par
+ngOnInit is a special method in Angular. Angular calls this method when it creates an instance of this component and displays it to the user in the browser.\par
+\par
+For this exercise, we don\rquote t have to worry about either of these methods. So, delete both of them. You should also delete implements OnInit in front of the class name. For now, don\rquote t worry about it, but basically, it tells Angular that this class has some initialization code that should be executed before this component is displayed to the user.\par
+\par
+So, your code should look like this:\par
+\par
+import \{ Component, OnInit \} from '@angular/core';\par
+\par
+@Component(\{\par
+  selector: 'app-product',\par
+  templateUrl: './product.component.html',\par
+  styleUrls: ['./product.component.css']\par
+\})\par
+export class ProductComponent \{\par
+\}\par
+\b Component Metadata\par
+\b0 So, you\rquote ve seen that we implement a component using a TypeScript class. But a class on its own is just a class. It only includes some data and logic for a view. It doesn\rquote t include any HTML markup or CSS styles. In order to attach these to this class, we need to promote this class to a component. We can do this by using the @Component() decorator function on top of this class (lines 3-7):\par
+\par
+import \{ Component, OnInit \} from '@angular/core';\par
+\par
+@Component(\{\par
+  selector: 'app-product',\par
+  templateUrl: './product.component.html',\par
+  styleUrls: ['./product.component.css']\par
+\})\par
+export class ProductComponent \{\par
+\}\par
+ \par
+ \par
+With this, we can attach metadata to this class that Angular understands. This @Component() decorator function is defined in Angular and you can see we\rquote re importing it on line 1. It takes an object with the following properties:\par
+\par
+\b selector\par
+templateUrl\par
+styleUrls\par
+\b0 You\rquote ve seen the selector in action. It associates a new HTML element to this component. With this, we can extend the standard HTML vocabulary. So, now we have a new custom element (app-product) that we can use anywhere in our application. When Angular sees that element, it\rquote ll place the HTML markup of our ProductComponent inside that element.\par
+\par
+The other 2 properties (templateUrl and styleUrls)  are self-explanatory. They specify the path to the HTML template and CSS file(s) for this component.\par
+\par
+\b Property Binding\par
+\b0 In Angular, unlike vanilla JavaScript or jQuery, we don\rquote t work directly with the DOM. So, we don\rquote t write code like this:\par
+\par
+\b $("#myElement").text("something")\par
+Instead, we use property binding. Let me show you how that works.\par
+\par
+In our ProductComponent, let\rquote s add a new field:\par
+\par
+import \{ Component, OnInit \} from '@angular/core';\par
+\par
+@Component(\{\par
+  selector: 'app-product',\par
+  templateUrl: './product.component.html',\par
+  styleUrls: ['./product.component.css']\par
+\})\par
+export class ProductComponent \{\par
+   title = 'USB Stick 8GB';\par
+\}\par
+ \par
+\b0 This title field contains the title for our product. In a real-world scenario, we get this title from a database somewhere on the server. So we don\rquote t hardcode it here. But for now, let\rquote s not worry about this and see property binding in action.\par
+\par
+Now, open up product.component.html. Replace all the markup there with:\par
+\par
+<p>\{\{ title \}\}</p>\par
+This special double curly brace syntax you see here is what we call interpolation in Angular. Fancy name again, right? This basically tells Angular to replace what we have between curly braces with the value of the title field in our component.\par
+\par
+This syntax is a shorthand for the actual property binding syntax we have in Angular. The code you wrote above is equivalent to the following code:\par
+\par
+<p [innerHtml]="title"></p>\par
+What is this? Very simple! In vanilla JavaScript, we can simply get a reference to an element in the DOM and set its innerHTML property like this:\par
+\par
+var el = document.getElementById("myElement");\par
+el.innerHTML = "USB Stick 8GB";\par
+So, every DOM element has a property called innerHTML. In our Angular application, we\rquote re using the square bracket syntax to bind a property of a DOM element to a field/property in our component:\par
+\par
+<p [innerHtml]="title"></p>\par
+So, at run-time, Angular will set the innerHtml property of this paragraph to the title field we defined in our component. And more importantly, if the value of our title field changes in the future, Angular will automatically update the view (DOM) for us! This is property binding in action. We have bound the innerHTML property of this element to the title field of our ProductComponent.\par
+\par
+\b A Simple Exercise\par
+\b0 Now, here is a simple exercise for you. I want you to extend our product component and display the number of USB sticks in the shopping cart below the name of this product. So, stop reading and make any necessary changes in the code. Then, come back here and see my solution.\par
+\par
+Ok, so you should have added a new field in ProductComponent:\par
+\par
+export class ProductComponent \{\par
+   title = "USB Stick 8GB";\par
+   itemCount = 0; \par
+\}\par
+ \par
+And used interpolation or property binding syntax to render it in the template:\par
+\par
+<p>\{\{ title \}\}</p>\par
+<p>\{\{ itemCount \}\}</p>\par
+Event Binding\par
+Similar to property binding, we have another concept in Angular called event binding. With property binding, we bind properties of DOM elements to fields/properties in our component. With event binding, we bind events of DOM elements (such as clicks) to methods in our component. So, for example, when the user clicks on a button, a method in our component will be called.\par
+\par
+We\rquote re going to extend our product component and add a button to increase the number of USB sticks in the shopping cart. So, modify product.component.html as follows:\par
+\par
+\par
+<p>\{\{ title \}\}</p>\par
+<p>\{\{ itemCount \}\}</p>\par
+<button (click)="addItem()">Add</button>\par
+Note the difference between property and event binding syntax. We use square brackets for property bindings and parenthesis for event binding. With this code, whenever our button is clicked, Angular calls the addItem() method in our component.\par
+\par
+So, let\rquote s implement this method in our component. Open up product.component.ts:\par
+\par
+export class ProductComponent \{\par
+   title = "USB Stick 8GB";\par
+   itemCount = 0; \par
+\par
+   addItem() \{ \par
+      this.itemCount++;\par
+   \} \par
+\}\par
+ \par
+ \par
+ \par
+Here, we\rquote re simply incrementing the itemCount field. Now, save the changes and go back to the browser. Test this application by clicking the Add button. You can see the count gets updated immediately. This is the beauty of property and event binding in action!\par
+\par
+As I explained, Angular watches our itemCount field. When its value gets changed, Angular updates the DOM immediately.\par
+\par
+What you\rquote ve seen far is just the tip of the iceberg. There is far more to property and event binding and Angular in general. It\rquote s impossible to cover it all in one blog post. If you\rquote re serious about learning Angular, I have a complete course with 30 hours of high-quality videos. This is equivalent to a book with more than a thousand pages!\par
+\par
+Recap\par
+Let\rquote s quickly recap what you\rquote ve learned in this post:\par
+\par
+Angular is a framework for building client apps with HTML, CSS and TypeScript.\par
+It gives our applications a proper, maintainable and testable structure.\par
+At the core of every Angular application, we have a tree of components.\par
+Each component encapsulates the state (data), the HTML markup and the behavior for a view.\par
+At a minimum, a component is implemented using a class. This class may include a bunch of fields for displaying data and methods, which will be called in response to events raised from the DOM events.\par
+A component may have an external template stored in a separate HTML file.\par
+It may also include one or more external stylesheets.\par
+A component also has a selector. That tells Angular where in the DOM to place this component.\par
+We use the property binding syntax (square brackets) to bind properties of DOM elements to fields/properties in our components.\par
+When the value of these fields/properties change, Angular automatically updates the DOM (view).\par
+We use the event binding syntax (parenthesis) to bind events of DOM elements to methods in our component.\par
+Angular automatically calls these methods to handle events raised from the DOM elements.\par
+}
+ 

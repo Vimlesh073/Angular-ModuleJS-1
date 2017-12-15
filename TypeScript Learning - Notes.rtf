@@ -1,0 +1,859 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang9\b\f0\fs36 TypeScript Tutorial\par
+\fs22 This tutorial is based on TypeScript v1.8.\b0\par
+\b This tutorial containsL\b0\par
+TypeScript Introduction\par
+Environment Setup\par
+Basic Syntax\par
+Types\par
+Variables\par
+Operators\par
+Decision Making\par
+Loops\par
+Functions\par
+Numbers\par
+Strings\par
+Arrays\par
+Tuples\par
+Union\par
+Interfaces\par
+Classes\par
+Objects\par
+Namespaces\par
+Modules\par
+Ambients\par
+\par
+\b TypeScript Introduction\par
+\b0 Using the JavaScript language to build massive scale web applications, APIs and even mobile applications, is not an easy task. JavaScript (based on EcmaScript specification)  was initially designed to perform simple operations in browsers. Ever since then, the ECMAScript specification has been revised to add new syntax and features to write complex applications.\par
+The additions to the language in \b ECMAScript 6 (a.k.a ES2015 or ES6)\b0  and the new features of ECMAScript 7 (a.k.a ES2016), which are under development have made the language a better fit for big applications. Though these additions are great, they couldn\rquote t bring all advantages of a typical typed language to JavaScript. JavaScript was never meant to be a typed language and the TC39 committee never wantede to take the language in that direction. In addition to these challenges, browsers also need time to implement these features.\par
+Microsoft\rquote s solution to these challenges is TypeScript \endash  a superset of JavaScript. TypeScript is a open source programming language created and maintained by Microsoft and was first announced in October 2012. Let\rquote s understand what the language is about and how it works.\par
+\b Pre-transpiling TypeScript using command line\par
+\b0 TypeScript can be pre-compiled to JavaScript using a number of approaches like using command line interface (CLI) of TypeScript, using task runners such as Grunt or Gulp, or using module loaders like Webpack and JSPM. In this chapter, we will see how to pre-compile using the command line interface. We will discuss about Webpack in a future tutorial.\par
+\b Installing TypeScript\par
+> npm install -g typescript\par
+\b0 Try opening a terminal anywhere and running tsc -v to see if it has been properly installed.\par
+\b > tsc -v\b0\par
+Version 1.8.10\par
+To use TypeScript\rquote s CLI, we need to install the global npm package for TypeScript using the following command:\par
+\b > tsc app.ts\b0\par
+As we are using ES6 style modules, we need to tell TypeScript the target module format we are looking for. TypeScript converts the modules into CommonJS format if no module system is specified. If we need to convert into any module type other than CommonJS, we need to specify it in the command line option. Following command converts the module to SystemJS:\par
+\b > tsc app.ts --module system\par
+\par
+We can also use the --watch option to automatically compile a TypeScript file when changes are made:\par
+\par
+\b0 # Initializes a watcher process that will keep main.js up to date.\par
+\b tsc main.ts --watch\par
+\par
+Text Editors With TypeScript Support\par
+\b0 TypeScript is an open-source project but is developed and maintained by Microsoft and as such was originally supported only in Microsoft's Visual Studio platform. Nowadays, there are a lot more text editors and IDEs that either natively or through plugins offer support for the TypeScript syntax, auto-complete suggestions, error catching, and even built-in compilers.\par
+\b\par
+Visual Studio Code \b0 - Microsoft's other, lightweight open-source code editor. TypeScript support is built in.\par
+\b Official Free Plugin for Sublime Text.\par
+The latest version of WebStorm comes with built in support.\par
+More including Vim, Atom, Emacs and others.\b0\par
+\b\par
+What is TypeScript?\b0\par
+TypeScript is an open source programming language written on top of JavaScript to support types. TypeScript is not a completely new language and is not intended to replace JavaScript in anyway. It adheres to all principles of JavaScript and just adds types on top of it. If you are already good at JavaScript, it won\rquote t take you much time to learn TypeScript.\par
+TypeScript can be used to write everything that can be written in JavaScript. With support of types, it looks very close to any other typed OOPs language like C# and Java. The types are optional, so it is not mandatory to strongly type everything. However good usage of types has many advantages. For example it enhances the productivity of the team. Strict type checking system makes the code more predictable. The type system of the language helps in solving many issues during development which could not be caught until runtime. This feature reduces the development time of a team. As most of the issues are resolved upfront, it reduces the cost of fixing the bugs later.\par
+The TypeScript team is working very hard to keep the language updated with the latest specifications of JavaScript. Most of the proposed features of ES6 and ES7 are implemented by TypeScript. They get converted into their ES5 equivalent when the TypeScript files are transpiled. This makes it possible to use the latest features of JavaScript even when the browsers have not implemented them natively.\par
+An existing JavaScript library need not be rewritten to be used in TypeScript. We need a type definition file declaring types for the APIs exposed by the library. The GitHub project Definitely Typed does a great job of creating and maintaining type definition files for most of the JavaScript libraries. These files are made available through a package manager to make it easier to install and use the type definition files.\par
+\b The Benefits of Using TypeScript\par
+\b0 JavaScript is pretty good as it is and you may wonder Do I really need to learn TypeScript? Technically, you do not need to learn TypeScript to be a good developer, most people do just fine without it. However, working with TypeScript definitely has its benefits:\par
+Due to the static typing, code written in TypeScript is more predictable, and is generally easier to debug.\par
+Makes it easier to organize the code base for very large and complicated apps thanks to modules, namespaces and strong OOP support.\par
+TypeScript has a compilation step to JavaScript that catches all kinds of errors before they reach runtime and break something.\par
+The upcoming Angular 2/4 framework is written in TypeScript and it's recommended that developers use the language in their projects as well.\par
+\par
+\b TypeScript Tutorial\par
+Basic TypeScript constructs: Types, Functions, Classes \b0\par
+\b Data Types and Variables\par
+TypeScript defines a set of basic and general purpose types. They are:\b0\par
+\par
+\'b7 \b number\b0 : All numeric values are treated as numbers. A variable of number type gets access to all APIs of the type Number defined by the browser\par
+\par
+\'b7 \b string\b0 : Any valid JavaScript string value gets string type. The string APIs defined by the browser are accessible to this type\par
+\par
+\'b7 \b boolean\b0 : A boolean type variable can be assigned with true or false. Default value of a Boolean variable is false\par
+\par
+\'b7 \b any\b0 : A generic type. A variable whose type cannot be represented using any of the basic types, types defined by the browser or the custom classes written in the application, can be declared using the any type\par
+\par
+\'b7 \b Empty object type (\{\}): \b0 This type represents objects that do not have any instance members or members that cannot be added to the object. Hence these are just empty objects. This type is not used in most of the cases.\par
+\par
+Syntax of declaring a variable is similar to the way we do it in JavaScript, except we declare type along with it.\par
+\b\par
+var num: number;\par
+var num2 = 10;\b0\par
+The variable num2 infers its type based on the value assigned to it, which is number. When we try to access members of the variable num2, auto completion suggests the members defined in the Number type. Following is a screenshot from Visual Studio Code (a free code editor from Microsoft) showing auto completion when we access members of num2:\par
+\par
+\b typescript-number-intellisense\par
+\b0\par
+Declaring a variable without using a type and without assigning any value to it makes type of the variable any. If types of the variable and the value assigned to it differ, the TypeScript compiler generates an error.\par
+\par
+\b TypeScript Functions\b0\par
+TypeScript functions can have typed arguments and a return type. TypeScript doesn\rquote t allow to pass variables of different types into the function unless there are explicit declarations of the function with those types.\par
+\par
+Consider the following function and the statements that calls the function:\par
+\b\par
+function add(val1: number, val2: number): number\{\par
+  return val1 + val2;\par
+\}\par
+\b0  \par
+\b var numResult = add(10, 20);\par
+var strResult = add("The number is: ", "10");\par
+\b0 Out of the two statements, the second won\rquote t compile as the function expects the parameters to be numbers and we are passing strings here. Return type of the function is a number, so the variable numResult also gets the type number.\par
+\par
+\b It is possible to make the function accept either a number \b0 or a string using union types. We need to define a union type to represent number or string and use it as the type in the function definition. Following snippet shows how to rewrite the above function using union types:\par
+\par
+\b type myType = number | string;\par
+\b0  \par
+\b function add(val1: myType, val2: myType): myType\{\par
+  if((typeof val1 === 'number' && typeof val2 === 'number'))\par
+    return val1 + val2;\par
+  else if(typeof val1 === 'string' && typeof val2 === 'string')\par
+    return val1 + val2;\par
+    \par
+  return null;\par
+\}\par
+\b0  \par
+var result1 = add(10, 20);\par
+var result2 = add("The number is: ", "10");\par
+var result3 = add("The number is:", 10);\par
+The function adds the parameters when both are either numbers or strings. If both types of both parameters are different, it returns a null. Out of the three calls made to the function, we get result in the first two instances and the third one returns null.\par
+\par
+\b TypeScript Classes\par
+\b0 Classes are used to define blueprint of objects. They are used extensively in OOPs based languages. Though JavaScript didn\rquote t have direct support for classes till ES6, we were still able to create functionality similar to classes using the prototype property of the objects. TypeScript had support for classes since its inception.\par
+\par
+Classes in TypeScript can have properties and members as instance variables. Their access to the outside world can be controlled using access specifiers. The class can have a constructor to initialize its members. Arguments of the constructor can be automatically converted to instance members if an access specifier is specified in the argument. Following is an example of a class:\par
+\b\par
+class Employee\{\par
+  private bonus: number;\par
+ \par
+  constructor(private empNo: string, private name: string, private salary: number)\{\par
+    this.bonus = this.salary * 0.1;\par
+  \}\par
+ \b0\par
+ \b  getDetails()\{\par
+    return `Employee number is $\{this.empNo\} and name is $\{this.name\}`;\par
+  \}\par
+\b0     \par
+\b   get Name() \{\par
+   return this.name;\par
+  \}\par
+ \par
+  set Name(name: string)\{\par
+   this.name = name;\par
+  \}\par
+\}\par
+\b0 As the arguments passed to the constructor are marked as private, they are made members of the class and they receive the values that are passed to the constructor. The function getDetails returns a string containing details of the employee.\par
+\par
+The default access specifier in TypeScript is public. Here, the method getDetails becomes public. It can be called using any object of the class. The field bonus shouldn\rquote t be accessed directly using the object, so it is explicitly made private.\par
+\par
+The property Name with public getter and setter blocks are encapsulating the private field name in the class. This is to prevent direct access to the instance member from outside of the class. And the field bonus just has a getter block around it which allows it to be accessed from outside the class and prevent assigning any value to it.\par
+\par
+We can instantiate a class using the new keyword. Public members of the class can be accessed using the object created.\par
+\par
+\b var emp = new Employee("E001", "Alex", 10000);\par
+emp.Name = "Alisa";\par
+\b0  \par
+\b console.log(emp.getDetails());\par
+console.log(emp.Bonus);\par
+Inheritance in TypeScript\par
+\b0 Reusability is a word that we cannot ignore as programmers. We come across this word every now and then. One of the several ways in which code reusability can be achieved while dealing with classes and objects is through inheritance. A class can be inherited from an existing class. The new class gets members of the parent class along with its own.\par
+\par
+The child class gets access to all protected and public members of the parent class and not to the private members. When a child class is instantiated, the parent class also gets instantiated. The child class can call constructor of the parent class using the super keyword.\par
+\par
+Let\rquote s modify the Employee class defined above so that some of its members would be accessible through a child class and define a new class, Manager to see how inheritance works.\par
+\b\par
+class Employee\{\par
+  private bonus: number;\par
+ \par
+  constructor(protected empNo: string, protected name: string, protected salary: number)\{\par
+    this.bonus = this.salary * 0.1;\par
+  \}\par
+ \par
+  getDetails()\{\par
+    return `Employee number is $\{this.empNo\} and name is $\{this.name\}`;\par
+  \}\par
+    \par
+  get Name() \{\par
+   return this.name;\par
+  \}\par
+ \par
+  set Name(name: string)\{\par
+   this.name = name;\par
+  \}\par
+ \par
+  get Bonus()\{\par
+    return this.bonus;\par
+  \}\par
+\}\par
+ \par
+class Manager extends Employee \{\par
+  constructor(empNo: string, name: string, salary: number, private noOfReportees: number) \{\par
+    super(empNo, name, salary);\par
+  \}\par
+     \par
+  getDetails()\{\par
+    var details = super.getDetails();\par
+    return `$\{details\} and has $\{this.noOfReportees\} reportees.`;\par
+  \}\par
+\}\par
+\b0 In constructor of the Manager class, we call the constructor of the Employee class in the first statement. The super keyword in the child class refers to the current instance of the parent class. Call to the parent class constructor has to be the first statement in the child class. If the parent class has a parameterized constructor, it is mandatory to call the parent class constructor.\par
+\par
+Also, observe the way the getDetails method calls the parent class method. This method overrides the parent class method. When getDetails is invoked using an object of the Manager class, it calls method of the Manager class. This completely hides the parent class method. But the parent class method is available for the child class to invoke, and it can be done using the super keyword.\par
+\par
+ \par
+\par
+\b Interfaces in TypeScript\par
+\b0 Interfaces are used to create contracts. They don\rquote t provide a concrete meaning to anything, they just declare the methods and fields. Because of this, an interface cannot be used as-is to build anything. An interface is meant to be inherited by a class and the class implementing the interface has to define all members of the interface.\par
+\b Consider the following interface:\par
+\par
+interface IShape\{\par
+  area(): number;\par
+\}\b0\par
+The above interface represents a shape and declares a method to calculate surface area of the shape. It doesn\rquote t cover any details about the shape \endash  for e.g. the kind of shape, if it has length and breadth or any other details. These details have to be provided by the implementing class. Let\rquote s define two classes, Square and Rectangle by implementing this interface.\par
+\b\par
+class Square implements IShape\{\par
+  constructor(private length: number)\{\}\par
+ \par
+  get Length()\{\par
+    return this.length;\par
+  \}\par
+ \par
+  area()\{\par
+    return this.length * this.length;\par
+  \}\par
+\}\par
+ \par
+class Rectangle implements IShape\{\par
+  constructor(private length: number, private breadth: number)\{\}\par
+     \par
+  area(): number\{\par
+    return this.length * this.breadth;\par
+  \}\par
+\}\par
+\b0 We can instantiate these classes and assign them to references of the interface type. We can access the members declared in the interface using this instance.\par
+\par
+var square: IShape = new Square(10);\par
+var rectangle: IShape = new Rectangle(10, 20);\par
+console.log(square.area());\par
+console.log(rectangle.area());\par
+The class Square class has an additional property Length that is not declared in the interface. Though the object square is an instance of Square class, we cannot access the members that are defined in the class and not in the interface. However, the object square can be casted to the type Square and then we can use the members defined in the Square class.\par
+\par
+var squareObj = square as Square;\par
+console.log(squareObj.Length);\par
+\par
+\par
+\par
+Interfaces\par
+Interfaces are used to type-check whether an object fits a certain structure. By defining an interface we can name a specific combination of variables, making sure that they will always go together. When translated to JavaScript, interfaces disappear - their only purpose is to help in the development stage.\par
+\par
+\b In the below example we define a simple interface to type-check a function's arguments:\par
+\par
+// Here we define our Food interface, its properties, and their types.\par
+interface Food \{\par
+    name: string;\par
+    calories: number;\par
+\}\par
+\par
+// We tell our function to expect an object that fulfills the Food interface. \par
+// This way we know that the properties we need will always be available.\par
+function speak(food: Food): void\{\par
+  console.log("Our " + food.name + " has " + food.calories + " calories.");\par
+\}\par
+\par
+// We define an object that has all of the properties the Food interface expects.\par
+// Notice that types will be inferred automatically.\par
+var ice_cream = \{\par
+  name: "ice cream", \par
+  calories: 200\par
+\}\par
+\par
+speak(ice_cream);\par
+\b0\par
+\par
+\par
+\b TypeScript Decorators\par
+\b0 Decorators are used to extend the behavior without modifying the implementation. Decorators can be applied on classes, members of classes, functions or even on arguments of function. It is a feature proposed for ES7 and is already in use by some of the JavaScript frameworks including Angular 2/4.\par
+\par
+Creating and using decorators is very easy. A custom decorator is a function that accepts some arguments containing details of the target on which it is applied. It can modify the way the target works using this information.\par
+\par
+The following snippet defines and uses a decorator:\par
+\b\par
+function nonEnumerable(target, name, descriptor)\{\par
+  descriptor.enumerable = false;\par
+  return descriptor;\par
+\}\par
+ \par
+class Person \{\par
+  fullName: string;\par
+ \par
+  @nonEnumerable\par
+  get name() \{ return this.fullName; \}\par
+ \par
+  set name(val) \{\par
+    this.fullName = val;\par
+  \}\par
+ \par
+  get age()\{\par
+    return 20;\par
+  \}\par
+\}\par
+ \par
+var p = new Person();\par
+for(let prop in p)\{\par
+  console.log(prop);\par
+\}\par
+\b0 The decorator nonEnumerable sets enumerable property of a field to false. After this, the property won\rquote t be encountered when we run a for\'85in loop on the object. The loop written at the end of the snippet prints only the property age .\par
+\par
+\b TypeScript - Namespaces\par
+\b0 ----------------------------------------------------------------------------------------------------------------\par
+A namespace is a way to logically group related code. This is inbuilt into TypeScript unlike in JavaScript where variables declarations go into a global scope and if multiple JavaScript files are used within same project there will be possibility of overwriting or misconstruing the same variables, which will lead to the \ldblquote global namespace pollution problem\rdblquote  in JavaScript.\par
+\par
+Defining a Namespace\par
+A namespace definition begins with the keyword namespace followed by the namespace name as follows \u8722?\par
+\par
+namespace SomeNameSpaceName \{ \par
+   export interface ISomeInterfaceName \{      \}  \par
+   export class SomeClassName \{      \}  \par
+\} \par
+The classes or interfaces which should be accessed outside the namespace should be marked with keyword export.\par
+\par
+To access the class or interface in another namespace, the syntax will be namespaceName.className\par
+\par
+SomeNameSpaceName.SomeClassName;\par
+If the first namespace is in separate TypeScript file, then it should be referenced using triple slash reference syntax.\par
+\par
+/// <reference path = "SomeFileName.ts" />\par
+The following program demonstrates use of namespaces \u8722?\par
+\par
+FileName :IShape.ts \par
+---------- \par
+namespace Drawing \{ \par
+   export interface IShape \{ \par
+      draw(); \par
+   \}\par
+\}  \par
+\par
+FileName :Circle.ts \par
+---------- \par
+/// <reference path = "IShape.ts" /> \par
+namespace Drawing \{ \par
+   export class Circle implements IShape \{ \par
+      public draw() \{ \par
+         console.log("Circle is drawn"); \par
+      \}  \par
+      \par
+      FileName :Triangle.ts \par
+      ---------- \par
+      /// <reference path = "IShape.ts" /> \par
+      namespace Drawing \{ \par
+         export class Triangle implements IShape \{ \par
+            public draw() \{ \par
+               console.log("Triangle is drawn"); \par
+            \} \par
+         \} \par
+         \par
+         FileName : TestShape.ts \par
+         /// <reference path = "IShape.ts" />   \par
+         /// <reference path = "Circle.ts" /> \par
+         /// <reference path = "Triangle.ts" />  \par
+         function drawAllShapes(shape:Drawing.IShape) \{ \par
+            shape.draw(); \par
+         \} \par
+         drawAllShapes(new Drawing.Circle());\par
+         drawAllShapes(new Drawing.Triangle());\par
+      \}\par
+   \}\par
+\}\par
+The above code can be compiled and executed using the following command \u8722?\par
+\par
+tsc --out app.js TestShape.ts  \par
+\par
+node app.js\par
+On compiling, it will generate following JavaScript code(app.js).\par
+\par
+//Generated by typescript 1.8.10\par
+/// <reference path = "IShape.ts" />\par
+var Drawing;\par
+(function (Drawing) \{\par
+   var Circle = (function () \{\par
+      function Circle() \{\par
+      \}\par
+      Circle.prototype.draw = function () \{\par
+         console.log("Cirlce is drawn");\par
+      \};\par
+      return Circle;\par
+   \}());\par
+\tab\par
+   Drawing.Circle = Circle;\par
+\})(Drawing || (Drawing = \{\}));\par
+\par
+/// <reference path = "IShape.ts" />\par
+var Drawing;\par
+(function (Drawing) \{\par
+   var Triangle = (function () \{\par
+      function Triangle() \{\par
+      \}\par
+      Triangle.prototype.draw = function () \{\par
+         console.log("Triangle is drawn");\par
+      \};\par
+      return Triangle;\par
+   \}());\par
+   Drawing.Triangle = Triangle;\par
+\})(Drawing || (Drawing = \{\}));\par
+\par
+/// <reference path = "IShape.ts" />\par
+/// <reference path = "Circle.ts" />\par
+/// <reference path = "Triangle.ts" />\par
+function drawAllShapes(shape) \{\par
+   shape.draw();\par
+\}\par
+\par
+drawAllShapes(new Drawing.Circle());\par
+drawAllShapes(new Drawing.Triangle());\par
+When the above code is compiled and executed, it produces the following result \u8722?\par
+\par
+Circle is drawn \par
+Triangle is drawn\par
+Nested Namespaces\par
+You can define one namespace inside another namespace as follows \u8722?\par
+\par
+namespace namespace_name1 \{ \par
+   export namespace namespace_name2 \{\par
+      export class class_name \{    \} \par
+   \} \par
+\}\par
+You can access members of nested namespace by using the dot (.) operator as follows \u8722?\par
+\par
+FileName : Invoice.ts  \par
+namespace tutorialPoint \{ \par
+   export namespace invoiceApp \{ \par
+      export class Invoice \{ \par
+         public calculateDiscount(price: number) \{ \par
+            return price * .40; \par
+         \} \par
+      \} \par
+   \} \par
+\} \par
+FileName: InvoiceTest.ts \par
+\par
+/// <reference path = "Invoice.ts" />\par
+var invoice = new tutorialPoint.invoiceApp.Invoice(); \par
+console.log(invoice.calculateDiscount(500));\par
+The above code can be compiled and executed using the following command \u8722?\par
+\par
+tsc --out app.js InvoiceTest.ts \par
+node app.js\par
+On compiling, it will generate following JavaScript code(app.js).\par
+\par
+//Generated by typescript 1.8.10\par
+var tutorialPoint;\par
+(function (tutorialPoint) \{\par
+   var invoiceApp;\par
+   (function (invoiceApp) \{\par
+      var Invoice = (function () \{\par
+         function Invoice() \{\par
+         \}\par
+         Invoice.prototype.calculateDiscount = function (price) \{\par
+            return price * .40;\par
+         \};\par
+         return Invoice;\par
+      \}());\par
+      invoiceApp.Invoice = Invoice;\par
+   \})(invoiceApp = tutorialPoint.invoiceApp || (tutorialPoint.invoiceApp = \{\}));\par
+\tab\par
+\})(tutorialPoint || (tutorialPoint = \{\}));\par
+/// <reference path = "Invoice.ts" />\par
+\par
+var invoice = new tutorialPoint.invoiceApp.Invoice();\par
+console.log(invoice.calculateDiscount(500));\par
+When the above code is compiled and executed, it produces the following result \u8722?\par
+\par
+200\par
+\par
+\par
+\b TypeScript Modules\par
+-------------------------------------------------------------------------------------------------------------------\par
+\b0 Writing applications consisting of hundreds of files is almost impossible without a modular approach. As TypeScript was created to solve the issues with creating large applications using JavaScript, support for modules was added to it. After announcement of the ES6 module system, the module system of the language was renamed to namespaces and ES6 module system is now a first class citizen in TypeScript.\par
+\par
+ES6 module system treats every file as a module. A module can export the objects that it wants to make them available to the other modules and also import the objects exported by other modules. In a typical application using ES6 modules, one module made responsible to perform initial task of the application loads a few other modules of the application. These modules in turn load other modules in the application and so on.\par
+\par
+A module can export any number of functions, classes or variables. By default, the objects are exported with their original names. We can change this, if required. A module can have a default exported member as well. Following snippet shows examples of different export statements:\par
+\b\par
+//Inline export with same name\par
+export class MyClass\{\}\par
+export function myFunc()\{\}\par
+ \par
+//Exporting a group of members\par
+export \{\par
+  MyClass,\par
+  myFunc\par
+\};\par
+ \par
+ \par
+//Rename while exporting\par
+export \{\par
+  MyClass as AnotherClass,\par
+  myFunc as anotherFunc\par
+\};\par
+ \par
+//Default export\par
+export default myMemberToExport;\par
+\b0 When a module imports another module, it may import all exported members, some of them or none at all. The importing module also has the option to rename the importing object. The following snippet shows examples of different import statements:\par
+\b\par
+//Importing all exported objects\par
+import * as module1 from "./module1";\par
+ \par
+//Importing selected objects\par
+import \{MyClass1, MyClass2\} from "./module1";\par
+ \par
+//Importing selected objects and rename them\par
+import \{MyClass1 as Module1MyClass1, MyClass2 as Module1MyClass2\} from "./module1";\par
+ \par
+//Importing default export object\par
+import d from "./module1";\par
+Transpiling TypeScript and using on a web page\par
+TypeScript is not created for the browsers. It is a language to be used by developers to write code. . Hence we need to transpile the TypeScript code to JavaScript to be able to run it on the browser. There are several ways in which TypeScript code can be transpiled to JavaScript, each of them can be used in different scenarios depending upon the need.\par
+\par
+\par
+Modules\par
+\b0 Another important concept when working on large apps is modularity. Having your code split into many small reusable components helps your project stay organized and understandable, compared to having a single 10000-line file for everything.\par
+\par
+TypeScript introduces a syntax for exporting and importing modules, but cannot handle the actual wiring between files. To enable external modules TS relies on third-party libraries: require.js for browser apps and CommonJS for Node.js. Let's take a look at a simple example of TypeScript modules with require.js:\par
+\par
+We will have two files. One exports a function, the other imports and calls it.\par
+\par
+exporter.ts\par
+var sayHi = function(): void \{\par
+    console.log("Hello!");\par
+\}\par
+\par
+export = sayHi;\par
+importer.ts\par
+import sayHi = require('./exporter');\par
+sayHi();\par
+\b\par
+Example:\par
+Namespace Syntax (New)\par
+namespace TutorialPoint \{ \par
+   export function add(x, y) \{ console.log(x + y);\} \par
+\}\par
+\par
+Example\par
+Let\rquote s understand this using an example.\par
+\par
+// IShape.ts \par
+export interface IShape \{ \par
+   draw(); \par
+\}\par
+\par
+// Circle.ts \par
+import shape = require("./IShape"); \par
+export class Circle implements shape.IShape \{ \par
+   public draw() \{ \par
+      console.log("Cirlce is drawn (external module)"); \par
+   \} \par
+\} \par
+\par
+// Triangle.ts \par
+import shape = require("./IShape"); \par
+export class Triangle implements shape.IShape \{ \par
+   public draw() \{ \par
+      console.log("Triangle is drawn (external module)"); \par
+   \} \par
+\}\par
+   \par
+// TestShape.ts \par
+import shape = require("./IShape"); \par
+import circle = require("./Circle"); \par
+import triangle = require("./Triangle");  \par
+\par
+function drawAllShapes(shapeToDraw: shape.IShape) \{\par
+   shapeToDraw.draw(); \par
+\} \par
+\par
+drawAllShapes(new circle.Circle()); \par
+drawAllShapes(new triangle.Triangle()); \par
+The command to compile the main TypeScript file for AMD systems is \u8722?\par
+\par
+tsc --module amd TestShape.ts\par
+On compiling, it will generate following JavaScript code for AMD.\par
+\par
+{\field{\*\fldinst{HYPERLINK "File:IShape.js"}}{\fldrslt{\ul\cf1 File:IShape.js}}}\f0\fs22\par
+//Generated by typescript 1.8.10\par
+define(["require", "exports"], function (require, exports) \{\par
+\});\par
+{\field{\*\fldinst{HYPERLINK "File:Circle.js"}}{\fldrslt{\ul\cf1 File:Circle.js}}}\f0\fs22\par
+//Generated by typescript 1.8.10\par
+define(["require", "exports"], function (require, exports) \{\par
+   var Circle = (function () \{\par
+      function Circle() \{\par
+      \}\par
+      Circle.prototype.draw = function () \{\par
+         console.log("Cirlce is drawn (external module)");\par
+      \};\par
+      return Circle;\par
+   \})();\par
+   exports.Circle = Circle;\par
+\});\par
+{\field{\*\fldinst{HYPERLINK "File:Triangle.js"}}{\fldrslt{\ul\cf1 File:Triangle.js}}}\f0\fs22\par
+//Generated by typescript 1.8.10\par
+define(["require", "exports"], function (require, exports) \{\par
+   var Triangle = (function () \{\par
+      function Triangle() \{\par
+      \}\par
+      Triangle.prototype.draw = function () \{\par
+         console.log("Triangle is drawn (external module)");\par
+      \};\par
+      return Triangle;\par
+   \})();\par
+   exports.Triangle = Triangle;\par
+\});\par
+{\field{\*\fldinst{HYPERLINK "File:TestShape.js"}}{\fldrslt{\ul\cf1 File:TestShape.js}}}\f0\fs22\par
+//Generated by typescript 1.8.10\par
+define(["require", "exports", "./Circle", "./Triangle"], \par
+   function (require, exports, circle, triangle) \{\par
+   \par
+   function drawAllShapes(shapeToDraw) \{\par
+      shapeToDraw.draw();\par
+   \}\par
+   drawAllShapes(new circle.Circle());\par
+   drawAllShapes(new triangle.Triangle());\par
+\});\par
+The command to compile the main TypeScript file for Commonjs systems is\par
+\par
+tsc --module commonjs TestShape.ts\par
+On compiling, it will generate following JavaScript code for Commonjs.\par
+\par
+{\field{\*\fldinst{HYPERLINK "File:Circle.js"}}{\fldrslt{\ul\cf1 File:Circle.js}}}\f0\fs22\par
+//Generated by typescript 1.8.10\par
+var Circle = (function () \{\par
+   function Circle() \{\par
+   \}\par
+   Circle.prototype.draw = function () \{\par
+      console.log("Cirlce is drawn");\par
+   \};\par
+   return Circle;\par
+\})();\par
+\par
+exports.Circle = Circle;\par
+{\field{\*\fldinst{HYPERLINK "File:Triangle.js"}}{\fldrslt{\ul\cf1 File:Triangle.js}}}\f0\fs22\par
+//Generated by typescript 1.8.10\par
+var Triangle = (function () \{\par
+   function Triangle() \{\par
+   \}\par
+   Triangle.prototype.draw = function () \{\par
+      console.log("Triangle is drawn (external module)");\par
+   \};\par
+   return Triangle;\par
+\})();\par
+exports.Triangle = Triangle;\par
+{\field{\*\fldinst{HYPERLINK "File:TestShape.js"}}{\fldrslt{\ul\cf1 File:TestShape.js}}}\f0\fs22\par
+//Generated by typescript 1.8.10\par
+var circle = require("./Circle");\par
+var triangle = require("./Triangle");\par
+\par
+function drawAllShapes(shapeToDraw) \{\par
+   shapeToDraw.draw();\par
+\}\par
+drawAllShapes(new circle.Circle());\par
+drawAllShapes(new triangle.Triangle());\par
+Output\par
+Cirlce is drawn (external module)\par
+Triangle is drawn (external module)\par
+\par
+\par
+Transpiling TypeScript on the Fly\par
+\b0 The easiest way to try TypeScript is by transpiling it on the fly. This approach works for demos really well, but it is not the recommended way for production. Let\rquote s see how the on-the-fly transpiler works before jumping into pre-compiled script loading. To run TypeScript directly in the browser, we need the following libraries:\par
+\par
+TypeScript transpiler: a JavaScript file that takes care of transpiling TypeScript on the browser\par
+SystemJS module loader: SystemJS is a universal module loader. It loads all types of JavaScript modules. It is used to load ES6 modules without transpiling them\par
+SystemJS polyfill: used to polyfill the missing module systems. For example, if SystemJS is used to load an AMD style module and no AMD library is loaded on the page, then it polyfills the AMD module system\par
+ES6 Shim: used to polyfill ES6 promises in unsupported browsers\par
+The HTML page running TypeScript code has to refer to the above four libraries. Following is the content of an HTML page designed for this purpose:\par
+\b <!DOCTYPE html>\par
+<html>\par
+<head>\par
+  <title>Transpiling TypeScript in the browser</title>\par
+  <meta name="viewport" content="width=device-width, initial-scale=1">\par
+ \par
+  <a href="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js" rel="nofollow" target="_blank">https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js</a>\par
+  <a href="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.25/system-polyfills.js" rel="nofollow" target="_blank">https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.25/system-polyfills.js</a>\par
+ \par
+  <a href="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.25/system.js" rel="nofollow" target="_blank">https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.25/system.js</a>\par
+  <a href="https://npmcdn.com/typescript@1.8.9/lib/typescript.js" rel="nofollow" target="_blank">https://npmcdn.com/typescript@1.8.9/lib/typescript.js</a>\par
+</head>\par
+ \par
+<body>\par
+  <div>Area of the square is:</div>\par
+ \par
+  <div>Area of the rectangle is:</div>\par
+</body>\par
+</html>\par
+\b0 The TypeScript file has the classes Square and Rectangle we saw earlier in an example, and both of them calculate area. The file exports these two classes. Following is the content of this file:\par
+\b\par
+export class Square\{\par
+  constructor(private length: number)\{\}\par
+ \par
+  area()\{\par
+    return this.length*this.length;\par
+  \}\par
+\}\par
+ \par
+export class Rectangle\{\par
+  constructor(private length: number, private breadth: number)\{\}\par
+ \par
+  area(): number\{\par
+    return this.length * this.breadth;\par
+  \}\par
+\}\par
+It is saved in a file named app.ts. We need to load this file using System.js in the index.html and use the exported members. Following snippet shows how to load the file and use the exported members:\par
+\par
+System.config(\{\par
+  transpiler: 'typescript',\par
+  typescriptOptions: \{ emitDecoratorMetadata: true \},\par
+  packages: \{'.': \{defaultExtension: 'ts'\}\}\par
+\});\par
+System.import('app')\par
+.then(function(result) \{\par
+  var s = new result.Square(10);\par
+  var r = new result.Rectangle(10, 20);\par
+  document.querySelector("#areaOfSquare").innerHTML = s.area();\par
+  document.querySelector("#areaOfRectangle").innerHTML = r.area();\par
+\});\par
+\b0\par
+This command produces a file named app.js. We can load this file in the HTML file using the SystemJS module loader. We need to make some minor changes to the SystemJS code we wrote earlier to load this file. Following is the modified code:\par
+\par
+System.config(\{\par
+  packages: \{'.': \{defaultExtension: 'js'\}\}\par
+\});\par
+System.import('app')\par
+.then(function(result)\{\par
+  var s = new result.Square(10);\par
+  var r = new result.Rectangle(10, 20);\par
+  document.querySelector("#areaOfSquare").innerHTML = s.area();\par
+  document.querySelector("#areaOfRectangle").innerHTML = r.area();\par
+\});\par
+\par
+\b Generics\par
+\b0 Generics are templates that allow the same function to accept arguments of various different types. Creating reusable components using generics is better than using the any data type, as generics preserve the types of the variables that go in and out of them.\par
+\par
+A quick example would be a script that receives an argument and returns an array containing that same argument.\par
+\par
+// The <T> after the function name symbolizes that it's a generic function.\par
+// When we call the function, every instance of T will be replaced with the actual provided type.\par
+\par
+// Receives one argument of type T,\par
+// Returns an array of type T.\par
+\par
+function genericFunc<T>(argument: T): T[] \{    \par
+  var arrayOfT: T[] = [];    // Create empty array of type T.\par
+  arrayOfT.push(argument);   // Push, now arrayOfT = [argument].\par
+  return arrayOfT;\par
+\}\par
+\par
+var arrayFromString = genericFunc<string>("beep");\par
+console.log(arrayFromString[0]);         // "beep"\par
+console.log(typeof arrayFromString[0])   // String\par
+\par
+var arrayFromNumber = genericFunc(42);\par
+console.log(arrayFromNumber[0]);         // 42\par
+console.log(typeof arrayFromNumber[0])   // number\par
+\par
+\b Defining Ambients\par
+\b0 -------------------------------------------------------------------------------------------------------------------\b\par
+\b0 Ambient declarations are by convention kept in a type declaration file with following extension (d.ts)\par
+\par
+Sample.d.ts\par
+The above file will not be transcompiled to JavaScript. It will be used for type safety and intellisense.\par
+\par
+The syntax for declaring ambient variables or modules will be as following \u8722?\par
+\par
+Syntax\par
+declare module Module_Name \{\par
+\}\par
+The ambient files should be referenced in the client TypeScript file as shown \u8722?\par
+\par
+/// <reference path = " Sample.d.ts" />\par
+Example\par
+Let\rquote s understand this with help of an example. Assume you been given a third party javascript library which contains code similar to this.\par
+\par
+FileName: CalcThirdPartyJsLib.js \par
+var TutorialPoint;  \par
+(function (TutorialPoint) \{  \par
+   var Calc = (function () \{ \par
+      function Calc() \{ \par
+      \} \par
+      Calc.prototype.doSum = function (limit) \{\par
+         var sum = 0; \par
+         \par
+         for (var i = 0; i <= limit; i++) \{ \par
+            Calc.prototype.doSum = function (limit) \{\par
+               var sum = 0; \par
+               \par
+               for (var i = 0; i <= limit; i++) \{ \par
+                  sum = sum + i; \par
+                  return sum; \par
+                  return Calc; \par
+                  TutorialPoint.Calc = Calc; \par
+               \})(TutorialPoint || (TutorialPoint = \{\})); \par
+               var test = new TutorialPoint.Calc();\par
+            \}\par
+         \}\par
+      \}\par
+   \}\par
+\}   \par
+As a typescript programmer you will not have time to rewrite this library to typescript. But still you need to use the doSum() method with type safety. What you could do is ambient declaration file. Let us create an ambient declaration file Calc.d.ts\par
+\par
+FileName: Calc.d.ts \par
+declare module TutorialPoint \{ \par
+   export class Calc \{ \par
+      doSum(limit:number) : number; \par
+   \}\par
+\}\par
+Ambient files will not contain the implementations, it is just type declarations. Declarations now need to be included in the typescript file as follows.\par
+\par
+FileName : CalcTest.ts  \par
+/// <reference path = "Calc.d.ts" /> \par
+var obj = new TutorialPoint.Calc(); \par
+obj.doSum("Hello"); // compiler error \par
+console.log(obj.doSum(10));\par
+The following line of code will show a compiler error. This is because in the declaration file we specified the input parameter will be number.\par
+\par
+obj.doSum("Hello");\par
+Comment the above line and compile the program using the following syntax \u8722?\par
+\par
+tsc CalcTest.ts\par
+On compiling, it will generate following JavaScript code(CalcTest.js).\par
+\par
+//Generated by typescript 1.8.10\par
+/// <reference path = "Calc.d.ts" />\par
+var obj = new TutorialPoint.Calc();\par
+\par
+// obj.doSum("Hello");\par
+console.log(obj.doSum(10));\par
+In order to execute the code, let us add an html page with script tags as given below. Add the compiled CalcTest.js file and the third party library file CalcThirdPartyJsLib.js.\par
+\par
+<html> \par
+   <body style = "font-size:30px;"> \par
+      <h1>Ambient Test</h1> \par
+      <h2>Calc Test</h2> \par
+   </body> \par
+   \par
+   <script src = "CalcThirdPartyJsLib.js"></script> \par
+   <script src = "CalcTest.js"></script> \par
+</html>\par
+It will display the following page \u8722?\par
+\par
+Ambient Declarations\par
+On the console, you can see the following output \u8722?\par
+\par
+55\par
+Similarly, you can integrate jquery.d.ts or angular.d.ts into a project, based on your requirement.\par
+\par
+\b Conclusion\par
+\b0 TypeScript makes the experience of working with JavaScript better. The language is thoughtfully designed to not invent anything new and yet make the experience of programmers working on JavaScript better. This TypeScript tutorial gave you a quick start to TypeScript which will help you to write better Angular 2/4 apps.\par
+}
+ 
